@@ -1,0 +1,14 @@
+The file contains a tab-separated list representing the active contacts during 20-second intervals of the
+data collection. Each line has the form t i j Ci Cj, where i and j are the anonymous IDs of the persons
+in contact, Ci and Cj are their classes, and the interval during which this contact was active is [t − 20s,t],
+where the time t is measured in seconds. If multiple contacts are active in a given interval, you will see
+multiple lines starting with the same value of t.
+
+[15 points] Read in the dataset and create a static network according to the following specifications: The
+edge weight between two nodes should be proportional to the number of measured contacts.
+
+[15 points] Compute and plot the degree distribution of the network. Do the same for the clustering
+coefficient and the betweenness centrality.
+
+[10 points] Use the spring force layout to plot the graph, with node sizes proportional to the node degree,
+and node colors given by the class labels.

@@ -1,0 +1,14 @@
+Input: Undirected graph g = (V, E); source node i
+
+Output: Visited: the set of all nodes visited by the algotithm
+
+1. Initialize Q to an empty queue
+2. Visited <-- {i}
+3. enqueue(Q, i)
+4. while Q is not empty do
+5.   j <-- dequeue(Q)
+6.   foreach neighbor h of j do
+7.     if h not in Visited then
+8.       Visited <-- Visited union {h}
+9.       enqueue(Q, h)
+10. return Visited

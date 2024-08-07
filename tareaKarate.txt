@@ -1,0 +1,7 @@
+[10 points] Consider the Karate club network. Compute the degree, eigenvector, closeness, betweeness
+and Katz centrality (with the default value provided by networkx) of each node. Use networkx functions!
+Produce one plot per centrality measure
+
+[10 points] Compute the second eigenvector of the Laplacian matrix of the Karate club network. Assign
+nodes into clusters according to their signs of this vector, and plot the nodes in each cluster with a different
+color.
