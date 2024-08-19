@@ -86,4 +86,4 @@ def load_graph(graph_file):
 
     return answer_graph
 
-print(load_graph(NETWORK_FILE))
+#print(load_graph(NETWORK_FILE))

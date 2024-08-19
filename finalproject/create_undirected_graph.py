@@ -18,7 +18,7 @@ import random
 
 from alg_upa_trial import UPATrial
 
-def grow_graph(ugraph, pair):
+def grow_er_graph(ugraph, pair):
     """
     Add links to nodes
     """
@@ -28,7 +28,7 @@ def grow_graph(ugraph, pair):
     ugraph[node1].add(node0)
     return ugraph
 
-def make_ugraph(n, p):
+def make_er_ugraph(n, p):
     """
     Create a random undirected ER graph
     n is number of nodes, p is probability
@@ -41,20 +41,25 @@ def make_ugraph(n, p):
     for pair in v_perm:
         a = random.random()
         if a < p:
-            ugraph = grow_graph(ugraph, pair)
+            ugraph = grow_er_graph(ugraph, pair)
     return ugraph
 
 def make_upa_graph(n, m):
-    graph = make_ugraph(m, 1.0)
-    print(f'graph init: {graph}')
+    """
+    n is the final number of node
+    m is the number of existing nodes, m is fixed
+    generate undirected UPA graphs, makes use of the UPATrial class
+    """
+    graph = make_er_ugraph(m, 1.0)
+    #print(f'graph init: {graph}')
     upa = UPATrial(m)
     for val in range(m, n):
         new_set = upa.run_trial(m)
-        print(f'new_set: {new_set}')
+        #print(f'new_set: {new_set}')
         graph[val] = new_set
         for node in new_set:
             graph[node].add(val)
-    print(f'graph final: {graph}')
+    #print(f'graph final: {graph}')
+    return graph
 
-
-make_upa_graph(5, 3)
+#make_upa_graph(5, 3)
