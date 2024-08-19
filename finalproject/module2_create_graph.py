@@ -85,3 +85,5 @@ def load_graph(graph_file):
             answer_graph[node].add(int(neighbor))
 
     return answer_graph
+
+print(load_graph(NETWORK_FILE))
