@@ -7,9 +7,9 @@ def make_complete_graph(num_nodes):
     a dictionary corresponding to a complete directed
     graph with the specified number of nodes
     """
-    if num_nodes <= 0:
-        return dict()
     graph = dict()
+    if num_nodes <= 0:
+        return graph
     nodes = list(range(num_nodes))
     for node in nodes:
         graph[node] = set(nodes) - set([node])
@@ -59,13 +59,13 @@ def get_random_directed_graph(n, p):
     """
     graph = dict()
     vertices = range(n)
-    print(f'vertices: {vertices}')
+    #print(f'vertices: {vertices}')
     #for node in vertices:
     #    graph[node] = set([])
-    print(f'grafo: {graph}')
+    #print(f'grafo: {graph}')
     v_perm = itertools.permutations(vertices, 2)
     for pair in v_perm:
-        print(f'edge: {pair}')
+        #print(f'edge: {pair}')
         node1, node2 = pair
         if not graph.get(node1):
             graph[node1] = set([])
@@ -89,12 +89,17 @@ def erre(n, p):
             graph[pair[0]].add(pair[1])
     return graph
 
-val = erre(4, 0.5)
-print(val)
-print('===' * 12)
-print(in_degree_distribution(val))
+def test():
+    val = erre(4, 0.5)
+    print(val)
+    print('===' * 12)
+    print(in_degree_distribution(val))
 
-print()
-grafo = get_random_directed_graph(4, 0.5)
-print(grafo)
-print(in_degree_distribution(grafo))
+    print()
+    grafo = get_random_directed_graph(4, 0.5)
+    print(grafo)
+    print(in_degree_distribution(grafo))
+
+if __name__ == '__main__':
+    print(make_complete_graph(5))
+    print(get_random_directed_graph(4, 0.5))
